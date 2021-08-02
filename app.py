@@ -1,10 +1,15 @@
-from tkinter import *
+
+
+
+
+
+from tkinter import * 
 from PyDictionary import PyDictionary
 
 dictionary = PyDictionary()
 root = Tk()
-
-root.geometry("600x600")
+root.geometry("900x700")
+root.title('Dictionary')
 
 def dict():
     meaning.config(text=dictionary.meaning(word.get())['Noun'][0])
@@ -12,39 +17,34 @@ def dict():
     antonym.config(text=dictionary.antonym(word.get()))
 
 
-Label(root, text="Dictionary", font=("Helvatica 18 bold"), fg="green").pack(pady=10)
+l = Label(root, text="Dictionary", font=("Helvatica 18 bold"), fg="green")
+l.grid(row=0, column=1, sticky=W, pady=2)
 
-frame = Frame(root)
-Label(frame, text="Please Enter a Word", font = ("Helvatica 16 bold")).pack(side=LEFT)
-word = Entry(frame, font = ("Helvatica 15 bold"))
-word.pack()
+l2 = Label(root, text="Word", font = ("Helvatica 14"))
+l2.grid(row=1, column=0, pady=2)
 
-frame.pack(pady=10)
+word = Entry(root, font=("Helvatica 13"), justify="left")
+word.grid(row=1, column=1, pady=2)
 
-#frame1
-frame1 = Frame(root)
+l3 = Label(root, text="Meaning:- ", font = ("Helvatica 12 bold"))
+l3.grid(row=2, column=0, pady=2)
 
-Label(frame1, text="Meaning:- ", font = ("Helvatica 10 bold")).pack(side=LEFT)
-meaning=Label(frame1, text="", font=("Helvatica 10 bold"))
-meaning.pack()
-frame1.pack(pady=10)
+meaning = Label(root, text="", font=("Helvatica 10"), wraplength=800, justify="left")
+meaning.grid(row=2, column=1, pady=2)
 
-#frame2
-frame2=Frame(root)
+l4 = Label(root, text="Synonym:- ", font=("Helvatica 12 bold"))
+l4.grid(row=3, column=0, pady=2)
 
-Label(frame2, text="Synonym:- ", font=("Helvatica 10 bold")).pack(side=LEFT)
-synonym = Label(frame2, text="", font=("Helvatica 10 bold"))
-synonym.pack()
-frame2.pack(pady=10)
+synonym = Label(root, text="", font=("Helvatica 10"), wraplength=800, justify="left")
+synonym.grid(row=3, column=1, pady=2)
 
-#frame3
-frame3 = Frame(root)
+l5 = Label(root, text="Antonym:- ", font=("Helvatica 12 bold"))
+l5.grid(row=4, column=0, pady=2)
 
-Label(frame3, text="Antonym:- ", font=("Helvatica 10 bold")).pack(side=LEFT)
-antonym = Label(frame3, text="", font = ("Helvatica 10 bold"))
-antonym.pack(side=LEFT)
-frame3.pack(pady=10)
+antonym = Label(root, text="", font=("Helvatica 10"), wraplength=800, justify="left")
+antonym.grid(row=4, column=1, pady=2)
 
-Button(root, text="Submit", font=("Helvatica 10 bold"), command=dict).pack()
+b = Button(root, text="Submit", font=("Helvatica 11 bold"), fg="white", bg="gray", command=dict)
+b.grid(row=5, column=0, pady=2)
 
 root.mainloop()

@@ -3,15 +3,14 @@ from PyDictionary import PyDictionary
 
 dictionary = PyDictionary()
 root = Tk()
-root.geometry("950x700")
+root.geometry("1000x800")
 root.title('Dictionary')
 
 def dict():
     meaning.config(text=dictionary.meaning(word.get())['Noun'][0])
     synonym.config(text=dictionary.synonym(word.get()))
     antonym.config(text=dictionary.antonym(word.get()))
-
-
+    
 l = Label(root, text="Dictionary", font=("Helvatica 18 bold"), fg="green")
 l.grid(row=0, column=1)
 
